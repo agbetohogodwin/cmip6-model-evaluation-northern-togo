@@ -32,7 +32,6 @@ Diagrammes de Taylor
 ### Précipitations (PR)
 
 ![Dapaong](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Dapaong.png)
-![Global](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Global.png)
 ![Kara](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Kara.png)
 ![Mango](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Mango.png)
 ![Niamtougou](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Niamtougou.png)
@@ -40,7 +39,6 @@ Diagrammes de Taylor
 ### Température maximale (TASMAX)
 
 ![Dapaong](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Dapaong.png)
-![Global](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Global.png)
 ![Kara](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Kara.png)
 ![Mango](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Mango.png)
 ![Niamtougou](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Niamtougou.png)
@@ -48,7 +46,6 @@ Diagrammes de Taylor
 ### Température minimale (TASMIN)
 
 ![Dapaong](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Dapaong.png)
-![Global](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Global.png)
 ![Kara](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Kara.png)
 ![Mango](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Mango.png)
 ![Niamtougou](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Niamtougou.png)
