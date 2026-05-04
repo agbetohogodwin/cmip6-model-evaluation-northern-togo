@@ -77,14 +77,21 @@ Données : NASA NEX-GDDP-CMIP6, Données des précipitaions et des températures
 
 ## Structure du dépôt
 
-├── scripts/
-│   ├── evaluation_cmip6.R
-│   └── download_cmip6_gee.js
-├── outputs/
-│   ├── Taylor_PR_*.png
-│   ├── Taylor_TASMAX_*.png
-│   └── Taylor_TASMIN_*.png
-└── README.md
+### ├── scripts/
+
+          ├── evaluation_cmip6.R
+          
+          └── download_cmip6_gee.js
+
+### ├── outputs/
+ 
+          ├── Taylor_PR_*.png
+          
+          ├── Taylor_TASMAX_*.png
+          
+          └── Taylor_TASMIN_*.png
+
+### └── README.md
 
 ## Statut
 
