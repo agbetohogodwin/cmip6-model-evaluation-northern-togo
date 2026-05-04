@@ -51,7 +51,7 @@ Modèles retenus
 ![Niamtougou](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Niamtougou.png)
 
 
-### 14 modèles sélectionnés sur 26 évalués :
+## 14 modèles sélectionnés sur 26 évalués :
 
 UKESM1-0-LL,
 INM-CM4-8,
