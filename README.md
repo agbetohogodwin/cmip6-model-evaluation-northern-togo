@@ -1,7 +1,4 @@
 # cmip6-model-evaluation-northern-togo
-Évaluation de 26 modèles NEX-GDDP-CMIP6 sur 4 stations du Nord-Togo (régions Savanes et Kara : Dapaong, Mango, Kara, Niamtougou) pour les précipitations, Tmax et Tmin. Classement final par mesure de notation complète (RM, Comprehensive Rating Metric) à partir de 4 métriques : BIAS, RMSE, Pearson R et Willmott d.
-
-## Évaluation des modèles CMIP6 pour le Nord-Togo
 
 Évaluation de 26 modèles climatiques NEX-GDDP-CMIP6 sur 4 stations du Nord-Togo pour la période historique (1983 - 2014). L'objectif est de sélectionner les modèles les plus performants pour les projections climatiques futures sous SSP2-4.5 et SSP5-8.5.
 
