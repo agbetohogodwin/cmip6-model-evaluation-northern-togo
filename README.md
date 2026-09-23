@@ -1,6 +1,6 @@
 # cmip6-model-evaluation-northern-togo
 
-Évaluation de 26 modèles climatiques NEX-GDDP-CMIP6 sur 4 stations du Nord-Togo pour la période historique (1983 - 2014). L'objectif est de sélectionner les modèles les plus performants pour les projections climatiques futures sous SSP2-4.5 et SSP5-8.5.
+Évaluation de 32 modèles climatiques NEX-GDDP-CMIP6 sur 4 stations du Nord-Togo pour la période historique (1983 - 2014). L'objectif est de sélectionner les modèles les plus performants pour les projections climatiques futures sous SSP2-4.5 et SSP5-8.5.
 
 ## Zone d'étude
 
@@ -24,46 +24,28 @@ Willmott d : indice d'accord
 Classement final par mesure de notation complète (RM / Comprehensive Rating Metric). Seuil de sélection : RM supérieur à 0,5.
 Modèles retenus
 
-## Diagrammes de Taylor
 
-### Précipitations (PR)
+## 18 modèles sélectionnés sur 32 évalués :
 
-![Dapaong](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Dapaong.png)
-![Kara](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Kara.png)
-![Mango](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Mango.png)
-![Niamtougou](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_PR_Niamtougou.png)
-
-### Température maximale (TASMAX)
-
-![Dapaong](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Dapaong.png)
-![Kara](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Kara.png)
-![Mango](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Mango.png)
-![Niamtougou](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMAX_Niamtougou.png)
-
-### Température minimale (TASMIN)
-
-![Dapaong](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Dapaong.png)
-![Kara](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Kara.png)
-![Mango](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Mango.png)
-![Niamtougou](https://raw.githubusercontent.com/agbetohogodwin/cmip6-model-evaluation-northern-togo/main/outputs/Taylor_TASMIN_Niamtougou.png)
-
-
-## 14 modèles sélectionnés sur 26 évalués :
-
-UKESM1-0-LL,
-INM-CM4-8,
-FGOALS-g3,
-KACE-1-0-G,
-MIROC-ES2L,
+UKESM1-0-LL
+INM-CM4-8
+FGOALS-g3
+KACE-1-0-G
 HadGEM3-GC31-MM
-INM-CM5-0,
-CanESM5,
-HadGEM3-GC31-LL,
-BCC-CSM2-MR,
-ACCESS-ESM1-5,
-GISS-E2-1-G,
-ACCESS-CM2,
+MIROC-ES2L
+INM-CM5-0
+HadGEM3-GC31-LL
+CanESM5
+BCC-CSM2-MR
+ACCESS-ESM1-5
+GISS-E2-1-G
+ACCESS-CM2
 GFDL-ESM4
+MIROC6
+GFDL-CM4_gr2
+KIOST-ESM
+IPSL-CM6A-LR
+
 
 ## Outils
 
@@ -80,13 +62,6 @@ Données : NASA NEX-GDDP-CMIP6, Données des précipitaions et des températures
           
           └── download_cmip6_gee.js
 
-### ├── outputs/
- 
-          ├── Taylor_PR_*.png
-          
-          ├── Taylor_TASMAX_*.png
-          
-          └── Taylor_TASMIN_*.png
 
 ### └── README.md
 
