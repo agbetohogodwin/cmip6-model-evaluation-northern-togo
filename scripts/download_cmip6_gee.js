@@ -1,3 +1,4 @@
+// 1. ZONE D'ÉTUDE (4 localités)
 var zone_etude = ee.FeatureCollection([
   ee.Feature(ee.Geometry.Point([0.201023, 10.873306]), {Localite: 'Dapaong'}),
   ee.Feature(ee.Geometry.Point([0.4703, 10.3569]),    {Localite: 'Mango'}),
@@ -5,41 +6,65 @@ var zone_etude = ee.FeatureCollection([
   ee.Feature(ee.Geometry.Point([1.1017, 9.7664]),     {Localite: 'Niamtougou'}),
 ]);
 
-var models = [
-  'UKESM1-0-LL', 'INM-CM4-8', 'FGOALS-g3', 'KACE-1-0-G',
-  'MIROC-ES2L', 'HadGEM3-GC31-MM', 'INM-CM5-0', 'CanESM5',
-  'HadGEM3-GC31-LL', 'BCC-CSM2-MR', 'ACCESS-ESM1-5', 'GISS-E2-1-G',
-  'ACCESS-CM2', 'GFDL-ESM4', 'MIROC6', 'EC-Earth3',
-  'IPSL-CM6A-LR', 'MRI-ESM2-0', 'CNRM-ESM2-1', 'CNRM-CM6-1',
-  'EC-Earth3-Veg-LR', 'MPI-ESM1-2-LR', 'NorESM2-LM', 'GFDL-CM4',
-  'NorESM2-MM', 'MPI-ESM1-2-HR'
+// 2. CONFIGURATION DES MODÈLES
+// Les modèles standards n'ont pas besoin de grille.
+// GFDL-CM4 a deux grilles distinctes (gr1 et gr2), traitées séparément.
+var modelNames = [
+  'ACCESS-CM2', 'ACCESS-ESM1-5', 'BCC-CSM2-MR', 'CanESM5',
+  'CMCC-CM2-SR5', 'CMCC-ESM2', 'CNRM-CM6-1', 'CNRM-ESM2-1',
+  'EC-Earth3', 'EC-Earth3-Veg-LR', 'FGOALS-g3', 'GFDL-ESM4',
+  'GISS-E2-1-G', 'HadGEM3-GC31-LL', 'HadGEM3-GC31-MM', 'INM-CM4-8',
+  'INM-CM5-0', 'IPSL-CM6A-LR', 'KACE-1-0-G', 'KIOST-ESM',
+  'MIROC-ES2L', 'MIROC6', 'MPI-ESM1-2-HR', 'MPI-ESM1-2-LR',
+  'MRI-ESM2-0', 'NESM3', 'NorESM2-LM', 'NorESM2-MM',
+  'TaiESM1', 'UKESM1-0-LL'
 ];
 
-models.forEach(function(model) {
-  var historical = ee.ImageCollection('NASA/GDDP-CMIP6')
-    .filter(ee.Filter.eq('model', model))
-    .filter(ee.Filter.eq('scenario', 'historical'))
-    .filterDate('1983-01-01', '2014-12-31')
-    .select(['pr', 'tasmax', 'tasmin']);
+var modelConfig = modelNames.map(function(name) {
+  return {name: name, grid: null, outputName: name};
+});
 
-  var extract_hist = historical.map(function(img) {
+modelConfig.push({name: 'GFDL-CM4', grid: 'gr1', outputName: 'GFDL-CM4_gr1'});
+modelConfig.push({name: 'GFDL-CM4', grid: 'gr2', outputName: 'GFDL-CM4_gr2'});
+
+// 3. FONCTION DE RÉDUCTION SPATIALE
+var extractStats = function(imgCollection, outputName, scenarioName, zone) {
+  return imgCollection.map(function(img) {
     var stats = img.reduceRegions({
-      collection: zone_etude,
+      collection: zone,
       reducer: ee.Reducer.mean(),
       scale: 25000
     });
     return stats.map(function(f) {
       return f.set('date', img.date().format('YYYY-MM-dd'))
-              .set('model', model)
-              .set('scenario', 'historical');
+              .set('model', outputName)
+              .set('scenario', scenarioName);
     });
   }).flatten();
+};
+
+// 4. BOUCLE SUR LES 32 MODÈLES
+modelConfig.forEach(function(cfg) {
+
+  var baseCollection = ee.ImageCollection('NASA/GDDP-CMIP6')
+    .filter(ee.Filter.eq('model', cfg.name));
+
+  if (cfg.grid !== null) {
+    baseCollection = baseCollection.filter(ee.Filter.eq('grid_label', cfg.grid));
+  }
+
+  var histColl = baseCollection
+    .filter(ee.Filter.eq('scenario', 'historical'))
+    .filterDate('1983-01-01', '2014-12-31')
+    .select(['pr', 'tasmax', 'tasmin']);
+
+  var extractedHist = extractStats(histColl, cfg.outputName, 'historical', zone_etude);
 
   Export.table.toDrive({
-    collection: extract_hist,
-    description: model + '_historical',
+    collection: extractedHist,
+    description: cfg.outputName + '_historical',
     folder: 'CMIP6_evaluation',
-    fileNamePrefix: model + '_historical',
+    fileNamePrefix: cfg.outputName + '_historical',
     fileFormat: 'CSV',
     selectors: ['model', 'scenario', 'Localite', 'date', 'pr', 'tasmax', 'tasmin']
   });
@@ -47,3 +72,5 @@ models.forEach(function(model) {
 
 Map.centerObject(zone_etude, 7);
 Map.addLayer(zone_etude, {color: 'red'}, 'Dapaong, Mango, Kara, Niamtougou');
+
+print('32 tâches d\'exportation (historical, pr/tasmax/tasmin) générées.');
